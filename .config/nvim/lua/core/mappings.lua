@@ -3,11 +3,6 @@ local function map(mode, lhs, rhs)
   vim.keymap.set(mode, lhs, rhs)
 end
 
-map("i", "<C-h>", "<Left>")
-map("i", "<C-l>", "<Right>")
-map("i", "<C-j>", "<Down>")
-map("i", "<C-k>", "<Up>")
-
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
 map("n", "<C-j>", "<C-w>j")
@@ -16,6 +11,8 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<leader>hl", ":noh<cr>")
 map("n", "<leader>cd", ":cd %:p:h<cr>:pwd<cr>")
 map("n", "<leader>lz", ":Lazy<cr>")
+map("n", "<leader>nt", ":NvimTreeToggle<cr>")
+map("n", "<leader>nf", ":NvimTreeFocus<cr>")
 
 map("n", "<leader>ff", ":Telescope find_files<cr>")
 map("n", "<leader>aa", ":Telescope find_files hidden=true<cr>")

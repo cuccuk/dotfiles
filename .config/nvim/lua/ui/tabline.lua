@@ -66,9 +66,7 @@ vim.api.nvim_create_autocmd("bufdelete", {
 M.buffer = function(bufnr)
   if #vim.api.nvim_buf_get_name(bufnr) ~= 0 then
     name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
-  else
-    name = "no name"
-  end
+  else name = "no name" end
   local red = vim.bo[bufnr].mod and " + " or " - "
   local green = ""
   name = #name > 15 and string.sub(name, 1, 15) .. ".." or name
