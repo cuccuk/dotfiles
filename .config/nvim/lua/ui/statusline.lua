@@ -5,7 +5,7 @@ local function mode()
   return "%#Focused# " .. vim.api.nvim_get_mode().mode .. " "
 end
 local function line()
-  return "%#Focused# " .. vim.fn.line "." .. "/" .. vim.fn.line "$" .. " "
+  return vim.fn.line "." .. "/" .. vim.fn.line "$" .. " "
 end
 local function run()
   return table.concat({ mode(), file_name(), "%=", line() })

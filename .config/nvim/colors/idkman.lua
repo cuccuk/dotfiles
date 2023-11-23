@@ -1,6 +1,7 @@
 local colors = {
   dark = {
     bg = "#000000",
+    uibg = "#0c0c0c",
     fg = "#ffffff",
     black = "#2b2b2b",
     red = "#e68a8a",
@@ -13,6 +14,7 @@ local colors = {
   },
   light = {
     bg = "#ffffff",
+    uibg = "#dedede",
     fg = "#000000",
     black = "#141414",
     red = "#b34747",
@@ -83,86 +85,32 @@ local groups = {
   LazyTaskError = { fg = theme.fg, bg = theme.bg },
   LazyTaskOutput = { fg = theme.fg, bg = theme.bg },
   LazyUrl = { fg = theme.fg, bg = theme.bg },
-  LazyValue = { fg = theme.fg, bg = theme.bg },
+  LazyValue = { fg = theme.blue, bg = theme.bg },
   TelescopeNormal = { bg = theme.bg },
   TelescopeBorder = { fg = theme.bg, bg = theme.bg },
-  NvimTreeNormal = { fg = theme.fg },
-  -- NvimTreeSymlink
-  -- NvimTreeExecFile
-  -- NvimTreeOpenedFile
-  -- NvimTreeModifiedFile
-  -- NvimTreeSpecialFile
-  -- NvimTreeImageFile
-  -- NvimTreeFolderName
-  -- NvimTreeEmptyFolderName
-  -- NvimTreeOpenedFolderName
-  -- NvimTreeSymlinkFolderName
-  -- NvimTreeRootFolder
-  -- NvimTreeFileIcon
-  -- NvimTreeOpenedFileIcon
-  -- NvimTreeSymlinkIcon
-  -- NvimTreeFolderIcon
-  -- NvimTreeOpenedFolderIcon
-  -- NvimTreeClosedFolderIcon
-  -- NvimTreeFolderArrowClosed
-  -- NvimTreeFolderArrowOpen
-  -- NvimTreeIndentMarker
-  -- NvimTreeNormal
-  -- NvimTreeNormalFloat
-  -- NvimTreeNormalNC
-
-  -- NvimTreeLineNr
-  -- NvimTreeWinSeparator
-  -- NvimTreeEndOfBuffer
-  -- NvimTreePopup
-  -- NvimTreeSignColumn
-
-  -- NvimTreeCursorColumn
-  -- NvimTreeCursorLine
-  -- NvimTreeCursorLineNr
-
-  -- NvimTreeStatusLine
-  -- NvimTreeStatusLineNC
-  -- NvimTreeCopiedHL
-  -- NvimTreeCutHL
-  -- NvimTreeBookmark
-  -- NvimTreeBookmarkHL
-  -- NvimTreeWindowPicker
-  -- NvimTreeLiveFilterPrefix
-  -- NvimTreeLiveFilterValue
-  -- NvimTreeGitDirty
-  -- NvimTreeGitStaged
-  -- NvimTreeGitMerge
-  -- NvimTreeGitRenamed
-  -- NvimTreeGitNew
-  -- NvimTreeGitDeleted
-  -- NvimTreeGitIgnored
-  -- NvimTreeFileDirty
-  -- NvimTreeFileStaged
-  -- NvimTreeFileMerge
-  -- NvimTreeFileRenamed
-  -- NvimTreeFileNew
-  -- NvimTreeFileDeleted
-  -- NvimTreeFileIgnored
-  -- NvimTreeFolderDirty
-  -- NvimTreeFolderStaged
-  -- NvimTreeFolderMerge
-  -- NvimTreeFolderRenamed
-  -- NvimTreeFolderNew
-  -- NvimTreeFolderDeleted
-  -- NvimTreeFolderIgnored
-  -- NvimTreeLspDiagnosticsError
-  -- NvimTreeLspDiagnosticsWarning
-  -- NvimTreeLspDiagnosticsInformation
-  -- NvimTreeLspDiagnosticsHint
-  -- NvimTreeLspDiagnosticsErrorText
-  -- NvimTreeLspDiagnosticsWarningText
-  -- NvimTreeLspDiagnosticsInfoText
-  -- NvimTreeLspDiagnosticsHintText
-  -- NvimTreeLspDiagnosticsErrorFolderText
-  -- NvimTreeLspDiagnosticsWarningFolderText
-  -- NvimTreeLspDiagnosticsInfoFolderText
-  -- NvimTreeLspDiagnosticsHintFolderText
+  NvimTreeSymlink = { fg = theme.fg },
+  NvimTreeExecFile = { fg = theme.fg },
+  NvimTreeOpenedFile = { fg = theme.fg },
+  NvimTreeModifiedFile = { fg = theme.fg },
+  NvimTreeSpecialFile = { fg = theme.fg },
+  NvimTreeImageFile = { fg = theme.fg },
+  NvimTreeRootFolder = { fg = theme.fg },
+  NvimTreeFileIcon = { fg = theme.fg },
+  NvimTreeSymlinkIcon = { fg = theme.fg },
+  NvimTreeFolderIcon = { fg = theme.fg },
+  NvimTreeIndentMarker = { fg = theme.fg },
+  NvimTreeNormal = { fg = theme.fg, bg = theme.uibg },
+  NvimTreePopup = { fg = theme.fg },
+  NvimTreeBookmark = { fg = theme.fg },
+  NvimTreeWindowPicker = { fg = theme.fg },
+  NvimTreeLiveFilterPrefix = { fg = theme.fg },
+  NvimTreeLiveFilterValue = { fg = theme.fg },
+  NvimTreeGitDirty = { fg = theme.fg },
+  NvimTreeGitStaged = { fg = theme.fg },
+  NvimTreeGitMerge = { fg = theme.fg },
+  NvimTreeGitRenamed = { fg = theme.fg },
+  NvimTreeGitNew = { fg = theme.fg },
+  NvimTreeGitDeleted = { fg = theme.fg },
 }
 
 if vim.g.colors_name then

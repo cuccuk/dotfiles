@@ -13,6 +13,7 @@ opt.smd = false
 opt.stal = 2
 opt.to = false
 opt.shm:append "I"
+opt.fcs = "horizup: ,horizdown: ,vertleft: ,vertright: ,verthoriz: "
 
 vim.api.nvim_create_autocmd("termopen", {
   callback = function(args)
