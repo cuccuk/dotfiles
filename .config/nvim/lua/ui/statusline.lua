@@ -2,7 +2,7 @@ local function file_name() return
   "%#Normal# " .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":~") .. " "
 end
 local function mode()
-  return "%#Focused# " .. vim.api.nvim_get_mode().mode .. " "
+  return "%#Pmenu# " .. vim.api.nvim_get_mode().mode .. " "
 end
 local function line()
   local a = vim.fn.line "."

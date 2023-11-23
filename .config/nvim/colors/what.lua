@@ -1,6 +1,6 @@
-local Gruvbox = {}
+local what = {}
 
-Gruvbox.config = {
+what.config = {
   terminal_colors = true,
   undercurl = true,
   underline = true,
@@ -25,7 +25,7 @@ Gruvbox.config = {
   transparent_mode = false,
 }
 
-Gruvbox.palette = {
+what.palette = {
   dark0_hard = "#1d2021",
   dark0 = "#282828",
   dark0_soft = "#32302f",
@@ -83,8 +83,8 @@ Gruvbox.palette = {
 }
 
 local function get_colors()
-  local p = Gruvbox.palette
-  local config = Gruvbox.config
+  local p = what.palette
+  local config = what.config
 
   for color, hex in pairs(config.palette_overrides) do
     p[color] = hex
@@ -166,7 +166,7 @@ end
 
 local function get_groups()
   local colors = get_colors()
-  local config = Gruvbox.config
+  local config = what.config
 
   if config.terminal_colors then
     local term_colors = {
@@ -193,52 +193,52 @@ local function get_groups()
   end
 
   local groups = {
-    GruvboxFg0 = { fg = colors.fg0 },
-    GruvboxFg1 = { fg = colors.fg1 },
-    GruvboxFg2 = { fg = colors.fg2 },
-    GruvboxFg3 = { fg = colors.fg3 },
-    GruvboxFg4 = { fg = colors.fg4 },
-    GruvboxGray = { fg = colors.gray },
-    GruvboxBg0 = { fg = colors.bg0 },
-    GruvboxBg1 = { fg = colors.bg1 },
-    GruvboxBg2 = { fg = colors.bg2 },
-    GruvboxBg3 = { fg = colors.bg3 },
-    GruvboxBg4 = { fg = colors.bg4 },
-    GruvboxRed = { fg = colors.red },
-    GruvboxRedBold = { fg = colors.red, bold = config.bold },
-    GruvboxGreen = { fg = colors.green },
-    GruvboxGreenBold = { fg = colors.green, bold = config.bold },
-    GruvboxYellow = { fg = colors.yellow },
-    GruvboxYellowBold = { fg = colors.yellow, bold = config.bold },
-    GruvboxBlue = { fg = colors.blue },
-    GruvboxBlueBold = { fg = colors.blue, bold = config.bold },
-    GruvboxPurple = { fg = colors.purple },
-    GruvboxPurpleBold = { fg = colors.purple, bold = config.bold },
-    GruvboxAqua = { fg = colors.aqua },
-    GruvboxAquaBold = { fg = colors.aqua, bold = config.bold },
-    GruvboxOrange = { fg = colors.orange },
-    GruvboxOrangeBold = { fg = colors.orange, bold = config.bold },
-    GruvboxRedSign = config.transparent_mode and { fg = colors.red, reverse = config.invert_signs }
+    whatFg0 = { fg = colors.fg0 },
+    whatFg1 = { fg = colors.fg1 },
+    whatFg2 = { fg = colors.fg2 },
+    whatFg3 = { fg = colors.fg3 },
+    whatFg4 = { fg = colors.fg4 },
+    whatGray = { fg = colors.gray },
+    whatBg0 = { fg = colors.bg0 },
+    whatBg1 = { fg = colors.bg1 },
+    whatBg2 = { fg = colors.bg2 },
+    whatBg3 = { fg = colors.bg3 },
+    whatBg4 = { fg = colors.bg4 },
+    whatRed = { fg = colors.red },
+    whatRedBold = { fg = colors.red, bold = config.bold },
+    whatGreen = { fg = colors.green },
+    whatGreenBold = { fg = colors.green, bold = config.bold },
+    whatYellow = { fg = colors.yellow },
+    whatYellowBold = { fg = colors.yellow, bold = config.bold },
+    whatBlue = { fg = colors.blue },
+    whatBlueBold = { fg = colors.blue, bold = config.bold },
+    whatPurple = { fg = colors.purple },
+    whatPurpleBold = { fg = colors.purple, bold = config.bold },
+    whatAqua = { fg = colors.aqua },
+    whatAquaBold = { fg = colors.aqua, bold = config.bold },
+    whatOrange = { fg = colors.orange },
+    whatOrangeBold = { fg = colors.orange, bold = config.bold },
+    whatRedSign = config.transparent_mode and { fg = colors.red, reverse = config.invert_signs }
       or { fg = colors.red, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxGreenSign = config.transparent_mode and { fg = colors.green, reverse = config.invert_signs }
+    whatGreenSign = config.transparent_mode and { fg = colors.green, reverse = config.invert_signs }
       or { fg = colors.green, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxYellowSign = config.transparent_mode and { fg = colors.yellow, reverse = config.invert_signs }
+    whatYellowSign = config.transparent_mode and { fg = colors.yellow, reverse = config.invert_signs }
       or { fg = colors.yellow, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxBlueSign = config.transparent_mode and { fg = colors.blue, reverse = config.invert_signs }
+    whatBlueSign = config.transparent_mode and { fg = colors.blue, reverse = config.invert_signs }
       or { fg = colors.blue, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxPurpleSign = config.transparent_mode and { fg = colors.purple, reverse = config.invert_signs }
+    whatPurpleSign = config.transparent_mode and { fg = colors.purple, reverse = config.invert_signs }
       or { fg = colors.purple, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxAquaSign = config.transparent_mode and { fg = colors.aqua, reverse = config.invert_signs }
+    whatAquaSign = config.transparent_mode and { fg = colors.aqua, reverse = config.invert_signs }
       or { fg = colors.aqua, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxOrangeSign = config.transparent_mode and { fg = colors.orange, reverse = config.invert_signs }
+    whatOrangeSign = config.transparent_mode and { fg = colors.orange, reverse = config.invert_signs }
       or { fg = colors.orange, bg = colors.bg1, reverse = config.invert_signs },
-    GruvboxRedUnderline = { undercurl = config.undercurl, sp = colors.red },
-    GruvboxGreenUnderline = { undercurl = config.undercurl, sp = colors.green },
-    GruvboxYellowUnderline = { undercurl = config.undercurl, sp = colors.yellow },
-    GruvboxBlueUnderline = { undercurl = config.undercurl, sp = colors.blue },
-    GruvboxPurpleUnderline = { undercurl = config.undercurl, sp = colors.purple },
-    GruvboxAquaUnderline = { undercurl = config.undercurl, sp = colors.aqua },
-    GruvboxOrangeUnderline = { undercurl = config.undercurl, sp = colors.orange },
+    whatRedUnderline = { undercurl = config.undercurl, sp = colors.red },
+    whatGreenUnderline = { undercurl = config.undercurl, sp = colors.green },
+    whatYellowUnderline = { undercurl = config.undercurl, sp = colors.yellow },
+    whatBlueUnderline = { undercurl = config.undercurl, sp = colors.blue },
+    whatPurpleUnderline = { undercurl = config.undercurl, sp = colors.purple },
+    whatAquaUnderline = { undercurl = config.undercurl, sp = colors.aqua },
+    whatOrangeUnderline = { undercurl = config.undercurl, sp = colors.orange },
     Normal = config.transparent_mode and { fg = colors.fg1, bg = nil } or { fg = colors.fg1, bg = colors.bg0 },
     NormalFloat = config.transparent_mode and { fg = colors.fg1, bg = nil } or { fg = colors.fg1, bg = colors.bg1 },
     NormalNC = config.dim_inactive and { fg = colors.fg0, bg = colors.bg1 } or { link = "Normal" },
@@ -251,14 +251,14 @@ local function get_groups()
     ColorColumn = { bg = colors.bg1 },
     Conceal = { fg = colors.blue },
     CursorLineNr = { fg = colors.yellow, bg = colors.bg1 },
-    NonText = { link = "GruvboxBg2" },
-    SpecialKey = { link = "GruvboxFg4" },
+    NonText = { link = "whatBg2" },
+    SpecialKey = { link = "whatFg4" },
     Visual = { bg = colors.bg3, reverse = config.invert_selection },
     VisualNOS = { link = "Visual" },
     Search = { fg = colors.yellow, bg = colors.bg0, reverse = config.inverse },
     IncSearch = { fg = colors.orange, bg = colors.bg0, reverse = config.inverse },
     CurSearch = { link = "IncSearch" },
-    QuickFixLine = { link = "GruvboxPurple" },
+    QuickFixLine = { link = "whatPurple" },
     Underlined = { fg = colors.blue, underline = config.underline },
     StatusLine = { fg = colors.bg2, bg = colors.fg1, reverse = config.inverse },
     StatusLineNC = { fg = colors.bg1, bg = colors.fg4, reverse = config.inverse },
@@ -266,13 +266,13 @@ local function get_groups()
     WinBarNC = { fg = colors.fg3, bg = colors.bg1 },
     WinSeparator = config.transparent_mode and { fg = colors.bg3, bg = nil } or { fg = colors.bg3, bg = colors.bg0 },
     WildMenu = { fg = colors.blue, bg = colors.bg2, bold = config.bold },
-    Directory = { link = "GruvboxBlueBold" },
-    Title = { link = "GruvboxGreenBold" },
+    Directory = { link = "whatBlueBold" },
+    Title = { link = "whatGreenBold" },
     ErrorMsg = { fg = colors.bg0, bg = colors.red, bold = config.bold },
-    MoreMsg = { link = "GruvboxYellowBold" },
-    ModeMsg = { link = "GruvboxYellowBold" },
-    Question = { link = "GruvboxOrangeBold" },
-    WarningMsg = { link = "GruvboxRedBold" },
+    MoreMsg = { link = "whatYellowBold" },
+    ModeMsg = { link = "whatYellowBold" },
+    Question = { link = "whatOrangeBold" },
+    WarningMsg = { link = "whatRedBold" },
     LineNr = { fg = colors.bg4 },
     SignColumn = config.transparent_mode and { bg = nil } or { bg = colors.bg1 },
     Folded = { fg = colors.gray, bg = colors.bg1, italic = config.italic.folds },
@@ -281,35 +281,35 @@ local function get_groups()
     vCursor = { link = "Cursor" },
     iCursor = { link = "Cursor" },
     lCursor = { link = "Cursor" },
-    Special = { link = "GruvboxOrange" },
+    Special = { link = "whatOrange" },
     Comment = { fg = colors.gray, italic = config.italic.comments },
     Todo = { fg = colors.bg0, bg = colors.yellow, bold = config.bold, italic = config.italic.comments },
     Done = { fg = colors.orange, bold = config.bold, italic = config.italic.comments },
     Error = { fg = colors.red, bold = config.bold, reverse = config.inverse },
-    Statement = { link = "GruvboxRed" },
-    Conditional = { link = "GruvboxRed" },
-    Repeat = { link = "GruvboxRed" },
-    Label = { link = "GruvboxRed" },
-    Exception = { link = "GruvboxRed" },
+    Statement = { link = "whatRed" },
+    Conditional = { link = "whatRed" },
+    Repeat = { link = "whatRed" },
+    Label = { link = "whatRed" },
+    Exception = { link = "whatRed" },
     Operator = { fg = colors.orange, italic = config.italic.operators },
-    Keyword = { link = "GruvboxRed" },
-    Identifier = { link = "GruvboxBlue" },
-    Function = { link = "GruvboxGreenBold" },
-    PreProc = { link = "GruvboxAqua" },
-    Include = { link = "GruvboxAqua" },
-    Define = { link = "GruvboxAqua" },
-    Macro = { link = "GruvboxAqua" },
-    PreCondit = { link = "GruvboxAqua" },
-    Constant = { link = "GruvboxPurple" },
-    Character = { link = "GruvboxPurple" },
+    Keyword = { link = "whatRed" },
+    Identifier = { link = "whatBlue" },
+    Function = { link = "whatGreenBold" },
+    PreProc = { link = "whatAqua" },
+    Include = { link = "whatAqua" },
+    Define = { link = "whatAqua" },
+    Macro = { link = "whatAqua" },
+    PreCondit = { link = "whatAqua" },
+    Constant = { link = "whatPurple" },
+    Character = { link = "whatPurple" },
     String = { fg = colors.green, italic = config.italic.strings },
-    Boolean = { link = "GruvboxPurple" },
-    Number = { link = "GruvboxPurple" },
-    Float = { link = "GruvboxPurple" },
-    Type = { link = "GruvboxYellow" },
-    StorageClass = { link = "GruvboxOrange" },
-    Structure = { link = "GruvboxAqua" },
-    Typedef = { link = "GruvboxYellow" },
+    Boolean = { link = "whatPurple" },
+    Number = { link = "whatPurple" },
+    Float = { link = "whatPurple" },
+    Type = { link = "whatYellow" },
+    StorageClass = { link = "whatOrange" },
+    Structure = { link = "whatAqua" },
+    Typedef = { link = "whatYellow" },
     Pmenu = { fg = colors.fg1, bg = colors.bg2 },
     PmenuSel = { fg = colors.bg2, bg = colors.blue, bold = config.bold },
     PmenuSbar = { bg = colors.bg2 },
@@ -318,36 +318,36 @@ local function get_groups()
     DiffAdd = { bg = colors.dark_green },
     DiffChange = { bg = colors.dark_aqua },
     DiffText = { bg = colors.yellow, fg = colors.bg0 },
-    SpellCap = { link = "GruvboxBlueUnderline" },
-    SpellBad = { link = "GruvboxRedUnderline" },
-    SpellLocal = { link = "GruvboxAquaUnderline" },
-    SpellRare = { link = "GruvboxPurpleUnderline" },
+    SpellCap = { link = "whatBlueUnderline" },
+    SpellBad = { link = "whatRedUnderline" },
+    SpellLocal = { link = "whatAquaUnderline" },
+    SpellRare = { link = "whatPurpleUnderline" },
     Whitespace = { fg = colors.bg2 },
-    DiagnosticError = { link = "GruvboxRed" },
-    DiagnosticSignError = { link = "GruvboxRedSign" },
-    DiagnosticUnderlineError = { link = "GruvboxRedUnderline" },
-    DiagnosticWarn = { link = "GruvboxYellow" },
-    DiagnosticSignWarn = { link = "GruvboxYellowSign" },
-    DiagnosticUnderlineWarn = { link = "GruvboxYellowUnderline" },
-    DiagnosticInfo = { link = "GruvboxBlue" },
-    DiagnosticSignInfo = { link = "GruvboxBlueSign" },
-    DiagnosticUnderlineInfo = { link = "GruvboxBlueUnderline" },
-    DiagnosticHint = { link = "GruvboxAqua" },
-    DiagnosticSignHint = { link = "GruvboxAquaSign" },
-    DiagnosticUnderlineHint = { link = "GruvboxAquaUnderline" },
-    DiagnosticFloatingError = { link = "GruvboxRed" },
-    DiagnosticFloatingWarn = { link = "GruvboxOrange" },
-    DiagnosticFloatingInfo = { link = "GruvboxBlue" },
-    DiagnosticFloatingHint = { link = "GruvboxAqua" },
-    DiagnosticVirtualTextError = { link = "GruvboxRed" },
-    DiagnosticVirtualTextWarn = { link = "GruvboxYellow" },
-    DiagnosticVirtualTextInfo = { link = "GruvboxBlue" },
-    DiagnosticVirtualTextHint = { link = "GruvboxAqua" },
-    DiagnosticOk = { link = "GruvboxGreenSign" },
-    LspReferenceRead = { link = "GruvboxYellowBold" },
-    LspReferenceText = { link = "GruvboxYellowBold" },
-    LspReferenceWrite = { link = "GruvboxOrangeBold" },
-    LspCodeLens = { link = "GruvboxGray" },
+    DiagnosticError = { link = "whatRed" },
+    DiagnosticSignError = { link = "whatRedSign" },
+    DiagnosticUnderlineError = { link = "whatRedUnderline" },
+    DiagnosticWarn = { link = "whatYellow" },
+    DiagnosticSignWarn = { link = "whatYellowSign" },
+    DiagnosticUnderlineWarn = { link = "whatYellowUnderline" },
+    DiagnosticInfo = { link = "whatBlue" },
+    DiagnosticSignInfo = { link = "whatBlueSign" },
+    DiagnosticUnderlineInfo = { link = "whatBlueUnderline" },
+    DiagnosticHint = { link = "whatAqua" },
+    DiagnosticSignHint = { link = "whatAquaSign" },
+    DiagnosticUnderlineHint = { link = "whatAquaUnderline" },
+    DiagnosticFloatingError = { link = "whatRed" },
+    DiagnosticFloatingWarn = { link = "whatOrange" },
+    DiagnosticFloatingInfo = { link = "whatBlue" },
+    DiagnosticFloatingHint = { link = "whatAqua" },
+    DiagnosticVirtualTextError = { link = "whatRed" },
+    DiagnosticVirtualTextWarn = { link = "whatYellow" },
+    DiagnosticVirtualTextInfo = { link = "whatBlue" },
+    DiagnosticVirtualTextHint = { link = "whatAqua" },
+    DiagnosticOk = { link = "whatGreenSign" },
+    LspReferenceRead = { link = "whatYellowBold" },
+    LspReferenceText = { link = "whatYellowBold" },
+    LspReferenceWrite = { link = "whatOrangeBold" },
+    LspCodeLens = { link = "whatGray" },
     LspSignatureActiveParameter = { link = "Search" },
     NvimTreeSymlink = { fg = colors.neutral_aqua },
     NvimTreeRootFolder = { fg = colors.neutral_purple, bold = true },
@@ -365,27 +365,27 @@ local function get_groups()
     NvimTreeGitNew = { fg = colors.neutral_yellow },
     NvimTreeGitDeleted = { fg = colors.neutral_red },
     NvimTreeWindowPicker = { bg = colors.aqua },
-    NERDTreeDir = { link = "GruvboxAqua" },
-    NERDTreeDirSlash = { link = "GruvboxAqua" },
-    NERDTreeOpenable = { link = "GruvboxOrange" },
-    NERDTreeClosable = { link = "GruvboxOrange" },
-    NERDTreeFile = { link = "GruvboxFg1" },
-    NERDTreeExecFile = { link = "GruvboxYellow" },
-    NERDTreeUp = { link = "GruvboxGray" },
-    NERDTreeCWD = { link = "GruvboxGreen" },
-    NERDTreeHelp = { link = "GruvboxFg1" },
-    NERDTreeToggleOn = { link = "GruvboxGreen" },
-    NERDTreeToggleOff = { link = "GruvboxRed" },
-    TelescopeNormal = { link = "GruvboxFg1" },
-    TelescopeSelection = { link = "GruvboxOrangeBold" },
-    TelescopeSelectionCaret = { link = "GruvboxRed" },
-    TelescopeMultiSelection = { link = "GruvboxGray" },
+    NERDTreeDir = { link = "whatAqua" },
+    NERDTreeDirSlash = { link = "whatAqua" },
+    NERDTreeOpenable = { link = "whatOrange" },
+    NERDTreeClosable = { link = "whatOrange" },
+    NERDTreeFile = { link = "whatFg1" },
+    NERDTreeExecFile = { link = "whatYellow" },
+    NERDTreeUp = { link = "whatGray" },
+    NERDTreeCWD = { link = "whatGreen" },
+    NERDTreeHelp = { link = "whatFg1" },
+    NERDTreeToggleOn = { link = "whatGreen" },
+    NERDTreeToggleOff = { link = "whatRed" },
+    TelescopeNormal = { link = "whatFg1" },
+    TelescopeSelection = { link = "whatOrangeBold" },
+    TelescopeSelectionCaret = { link = "whatRed" },
+    TelescopeMultiSelection = { link = "whatGray" },
     TelescopeBorder = { link = "TelescopeNormal" },
     TelescopePromptBorder = { link = "TelescopeNormal" },
     TelescopeResultsBorder = { link = "TelescopeNormal" },
     TelescopePreviewBorder = { link = "TelescopeNormal" },
-    TelescopeMatching = { link = "GruvboxBlue" },
-    TelescopePromptPrefix = { link = "GruvboxRed" },
+    TelescopeMatching = { link = "whatBlue" },
+    TelescopePromptPrefix = { link = "whatRed" },
     TelescopePrompt = { link = "TelescopeNormal" },
     ["@comment"] = { link = "Comment" },
     ["@none"] = { bg = "NONE", fg = "NONE" },
@@ -414,7 +414,7 @@ local function get_groups()
     ["@parameter"] = { link = "Identifier" },
     ["@keyword"] = { link = "Keyword" },
     ["@keyword.function"] = { link = "Keyword" },
-    ["@keyword.operator"] = { link = "GruvboxRed" },
+    ["@keyword.operator"] = { link = "whatRed" },
     ["@keyword.return"] = { link = "Keyword" },
     ["@conditional"] = { link = "Conditional" },
     ["@repeat"] = { link = "Repeat" },
@@ -430,14 +430,14 @@ local function get_groups()
     ["@attribute"] = { link = "PreProc" },
     ["@field"] = { link = "Identifier" },
     ["@property"] = { link = "Identifier" },
-    ["@variable"] = { link = "GruvboxFg1" },
+    ["@variable"] = { link = "whatFg1" },
     ["@variable.builtin"] = { link = "Special" },
     ["@constant"] = { link = "Constant" },
     ["@constant.builtin"] = { link = "Special" },
     ["@constant.macro"] = { link = "Define" },
-    ["@namespace"] = { link = "GruvboxFg1" },
+    ["@namespace"] = { link = "whatFg1" },
     ["@symbol"] = { link = "Identifier" },
-    ["@text"] = { link = "GruvboxFg1" },
+    ["@text"] = { link = "whatFg1" },
     ["@text.strong"] = { bold = config.bold },
     ["@text.emphasis"] = { italic = config.italic.emphasis },
     ["@text.underline"] = { underline = config.underline },
@@ -492,16 +492,11 @@ local function get_groups()
   return groups
 end
 
-Gruvbox.setup = function(config)
-  Gruvbox.config = vim.tbl_deep_extend("force", Gruvbox.config, config or {})
+what.setup = function(config)
+  what.config = vim.tbl_deep_extend("force", what.config, config or {})
 end
 
-Gruvbox.load = function()
-  if vim.version().minor < 8 then
-    vim.notify_once("gruvbox.nvim: you must use neovim 0.8 or higher")
-    return
-  end
-
+what.load = function()
   if vim.g.colors_name then
     vim.cmd.hi("clear")
   end
@@ -515,4 +510,4 @@ Gruvbox.load = function()
   end
 end
 
-return Gruvbox.load()
+return what.load()

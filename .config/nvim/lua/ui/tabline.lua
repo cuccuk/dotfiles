@@ -52,8 +52,8 @@ vim.api.nvim_create_autocmd("bufdelete", {
   callback = function(args)
     local bufs = vim.g.bufs
     if bufs then
-      for i, v in ipairs(bufs) do
-        if v == args.buf then
+      for i, buf in ipairs(bufs) do
+        if buf == args.buf then
           table.remove(bufs, i)
           vim.g.bufs = bufs
           break
@@ -72,9 +72,9 @@ M.buffer = function(bufnr)
   name = #name > 15 and string.sub(name, 1, 15) .. ".." or name
   name = name .. string.rep(" ", 17 - #name)
   if vim.api.nvim_get_current_buf() == bufnr then
-    green = "%#Focused# " .. name .. " "
+    green = "%#Pmenu# " .. name .. " "
   else
-    green = "%#Normal# " .. name .. " " .. "%#Cherry#"
+    green = "%#Normal# " .. name .. " " .. "%#whatRed#"
   end
   name = green .. red
   return name
@@ -97,7 +97,7 @@ M.tabs = function()
   for _, tabnr in ipairs(vim.api.nvim_list_tabpages()) do
     if #tabs > 4 then if keep then break end table.remove(tabs, 1) end
     if tabnr == vim.api.nvim_get_current_tabpage() then keep = true end
-    green = tabnr == vim.api.nvim_get_current_tabpage() and "%#Focused#" or "%#Normal#"
+    green = tabnr == vim.api.nvim_get_current_tabpage() and "%#Pmenu#" or "%#Normal#"
     tabnr = green .. " " .. tabnr .. " "
     table.insert(tabs, tabnr)
   end
