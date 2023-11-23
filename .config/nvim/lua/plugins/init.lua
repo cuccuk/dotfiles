@@ -17,31 +17,17 @@ require "lazy".setup(
           renderer = {
             icons = {
               show = {
-                file = false,
                 folder_arrow = false,
-                git = false,
               },
               glyphs = {
-                default = "󰈚",
-                symlink = "",
-                folder = {
-                  default = "",
-                  empty = "",
-                  empty_open = "",
-                  open = "",
-                  symlink = "",
-                  symlink_open = "",
-                  arrow_open = "",
-                  arrow_closed = "",
-                },
                 git = {
-                  unstaged = "✗",
-                  staged = "✓",
+                  unstaged = "",
+                  staged = "",
                   unmerged = "",
-                  renamed = "➜",
-                  untracked = "★",
-                  deleted = "",
-                  ignored = "◌",
+                  renamed = "",
+                  untracked = "󰠖",
+                  deleted = "󰆴",
+                  ignored = "",
                 },
               },
             },

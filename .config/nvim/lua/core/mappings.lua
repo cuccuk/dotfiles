@@ -30,9 +30,7 @@ local mappings = {
 }
 
 vim.g.mapleader = " "
-local function map(mode, lhs, rhs)
-  vim.keymap.set(mode, lhs, rhs)
-end
+
 for mode in pairs(mappings) do
   for lhs, rhs in pairs(mappings[mode]) do
     vim.keymap.set(mode, lhs, rhs)

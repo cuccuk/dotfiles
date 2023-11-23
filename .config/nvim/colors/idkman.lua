@@ -87,6 +87,82 @@ local groups = {
   TelescopeNormal = { bg = theme.bg },
   TelescopeBorder = { fg = theme.bg, bg = theme.bg },
   NvimTreeNormal = { fg = theme.fg },
+  -- NvimTreeSymlink
+  -- NvimTreeExecFile
+  -- NvimTreeOpenedFile
+  -- NvimTreeModifiedFile
+  -- NvimTreeSpecialFile
+  -- NvimTreeImageFile
+  -- NvimTreeFolderName
+  -- NvimTreeEmptyFolderName
+  -- NvimTreeOpenedFolderName
+  -- NvimTreeSymlinkFolderName
+  -- NvimTreeRootFolder
+  -- NvimTreeFileIcon
+  -- NvimTreeOpenedFileIcon
+  -- NvimTreeSymlinkIcon
+  -- NvimTreeFolderIcon
+  -- NvimTreeOpenedFolderIcon
+  -- NvimTreeClosedFolderIcon
+  -- NvimTreeFolderArrowClosed
+  -- NvimTreeFolderArrowOpen
+  -- NvimTreeIndentMarker
+  -- NvimTreeNormal
+  -- NvimTreeNormalFloat
+  -- NvimTreeNormalNC
+
+  -- NvimTreeLineNr
+  -- NvimTreeWinSeparator
+  -- NvimTreeEndOfBuffer
+  -- NvimTreePopup
+  -- NvimTreeSignColumn
+
+  -- NvimTreeCursorColumn
+  -- NvimTreeCursorLine
+  -- NvimTreeCursorLineNr
+
+  -- NvimTreeStatusLine
+  -- NvimTreeStatusLineNC
+  -- NvimTreeCopiedHL
+  -- NvimTreeCutHL
+  -- NvimTreeBookmark
+  -- NvimTreeBookmarkHL
+  -- NvimTreeWindowPicker
+  -- NvimTreeLiveFilterPrefix
+  -- NvimTreeLiveFilterValue
+  -- NvimTreeGitDirty
+  -- NvimTreeGitStaged
+  -- NvimTreeGitMerge
+  -- NvimTreeGitRenamed
+  -- NvimTreeGitNew
+  -- NvimTreeGitDeleted
+  -- NvimTreeGitIgnored
+  -- NvimTreeFileDirty
+  -- NvimTreeFileStaged
+  -- NvimTreeFileMerge
+  -- NvimTreeFileRenamed
+  -- NvimTreeFileNew
+  -- NvimTreeFileDeleted
+  -- NvimTreeFileIgnored
+  -- NvimTreeFolderDirty
+  -- NvimTreeFolderStaged
+  -- NvimTreeFolderMerge
+  -- NvimTreeFolderRenamed
+  -- NvimTreeFolderNew
+  -- NvimTreeFolderDeleted
+  -- NvimTreeFolderIgnored
+  -- NvimTreeLspDiagnosticsError
+  -- NvimTreeLspDiagnosticsWarning
+  -- NvimTreeLspDiagnosticsInformation
+  -- NvimTreeLspDiagnosticsHint
+  -- NvimTreeLspDiagnosticsErrorText
+  -- NvimTreeLspDiagnosticsWarningText
+  -- NvimTreeLspDiagnosticsInfoText
+  -- NvimTreeLspDiagnosticsHintText
+  -- NvimTreeLspDiagnosticsErrorFolderText
+  -- NvimTreeLspDiagnosticsWarningFolderText
+  -- NvimTreeLspDiagnosticsInfoFolderText
+  -- NvimTreeLspDiagnosticsHintFolderText
 }
 
 if vim.g.colors_name then
