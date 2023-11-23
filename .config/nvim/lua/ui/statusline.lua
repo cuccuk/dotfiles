@@ -5,7 +5,12 @@ local function mode()
   return "%#Focused# " .. vim.api.nvim_get_mode().mode .. " "
 end
 local function line()
-  return vim.fn.line "." .. "/" .. vim.fn.line "$" .. " "
+  local a = vim.fn.line "."
+  local b = vim.fn.line "$"
+  local c = math.modf((a / b) * 100) .. tostring "%%"
+  c = (a == 1 and "top") or c
+  c = (a == b and "bot") or c
+  return " " .. c .. " "
 end
 local function run()
   return table.concat({ mode(), file_name(), "%=", line() })
