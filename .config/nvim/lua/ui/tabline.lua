@@ -74,7 +74,7 @@ M.buffer = function(bufnr)
   if vim.api.nvim_get_current_buf() == bufnr then
     green = "%#Pmenu# " .. name .. " "
   else
-    green = "%#Normal# " .. name .. " " .. "%#whatRed#"
+    green = "%#Normal# " .. name .. " " .. "%#Cherry#"
   end
   name = green .. red
   return name

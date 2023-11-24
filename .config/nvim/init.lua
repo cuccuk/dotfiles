@@ -1,3 +1,4 @@
+vim.cmd "colo what"
 require "core"
 require "ui"
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
