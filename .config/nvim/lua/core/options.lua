@@ -21,5 +21,5 @@ vim.api.nvim_create_autocmd("termopen", {
       vim.wo.nu = false
       vim.wo.rnu = false
     end
-  end,
+  end
 })

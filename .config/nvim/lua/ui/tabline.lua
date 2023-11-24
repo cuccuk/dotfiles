@@ -18,15 +18,11 @@ M.bufp = function()
   vim.cmd(current_buf_i == 1 and "b" .. bufs[#bufs] or "b" .. bufs[current_buf_i - 1])
 end
 
-M.bufc = function(bufnr)
-  bufnr = bufnr or vim.api.nvim_get_current_buf()
-  vim.cmd("bd!" .. bufnr)
-end
-
 M.bufo = function()
   for _, bufnr in ipairs(vim.g.bufs) do
     if bufnr ~= vim.api.nvim_get_current_buf() then
-      M.bufc(bufnr)
+      vim.cmd("b" .. bufnr)
+      vim.cmd "conf bd"
     end
   end
   vim.cmd("redrawt")
@@ -45,7 +41,7 @@ vim.api.nvim_create_autocmd({ "bufadd", "bufenter" }, {
       table.insert(bufs, args.buf)
       vim.g.bufs = bufs
     end
-  end,
+  end
 })
 
 vim.api.nvim_create_autocmd("bufdelete", {
@@ -60,7 +56,7 @@ vim.api.nvim_create_autocmd("bufdelete", {
         end
       end
     end
-  end,
+  end
 })
 
 M.buffer = function(bufnr)
@@ -72,7 +68,7 @@ M.buffer = function(bufnr)
   name = #name > 15 and string.sub(name, 1, 15) .. ".." or name
   name = name .. string.rep(" ", 17 - #name)
   if vim.api.nvim_get_current_buf() == bufnr then
-    green = "%#Pmenu# " .. name .. " "
+    green = "%#Leaf# " .. name .. " "
   else
     green = "%#Normal# " .. name .. " " .. "%#Cherry#"
   end
@@ -97,7 +93,7 @@ M.tabs = function()
   for _, tabnr in ipairs(vim.api.nvim_list_tabpages()) do
     if #tabs > 4 then if keep then break end table.remove(tabs, 1) end
     if tabnr == vim.api.nvim_get_current_tabpage() then keep = true end
-    green = tabnr == vim.api.nvim_get_current_tabpage() and "%#Pmenu#" or "%#Normal#"
+    green = tabnr == vim.api.nvim_get_current_tabpage() and "%#Leaf#" or "%#Normal#"
     tabnr = green .. " " .. tabnr .. " "
     table.insert(tabs, tabnr)
   end

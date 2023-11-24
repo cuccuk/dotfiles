@@ -20,7 +20,7 @@ local mappings = {
 
     ["<Tab>"] = require("ui.tabline").bufn,
     ["<S-Tab>"] = require("ui.tabline").bufp,
-    ["<leader>bc"] = require("ui.tabline").bufc,
+    ["<leader>bc"] = ":conf bd<cr>",
     ["<leader>bo"] = require("ui.tabline").bufo,
 
     ["<leader>te"] = ":tabe<cr>",
