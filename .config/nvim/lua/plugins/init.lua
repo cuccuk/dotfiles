@@ -25,8 +25,8 @@ require "lazy".setup(
   },
   {
     defaults = { lazy = true },
-    install = {
-      colorscheme = { "what" },
-    },
+    -- install = {
+    --   colorscheme = { "what" },
+    -- },
   }
 )
