@@ -8,7 +8,11 @@ local mappings = {
     ["<leader>hl"] = ":noh<cr>",
     ["<leader>cd"] = ":cd %:p:h<cr>:pwd<cr>",
     ["<leader>lz"] = ":Lazy<cr>",
-    ["<C-n>"] = ":NvimTreeToggle<cr>",
+    ["<leader>do"] = function()
+      local buf = vim.api.nvim_create_buf(false, true)
+      local win = vim.api.nvim_win_set_buf(0, buf)
+      require "ui.dashboard".run(buf)
+    end,
 
     ["<leader>ff"] = ":Telescope find_files<cr>",
     ["<leader>aa"] = ":Telescope find_files hidden=true<cr>",

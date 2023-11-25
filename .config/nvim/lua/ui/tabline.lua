@@ -6,17 +6,18 @@ M.bufi = function(bufnr)
   end
 end
 
-M.bufn = function()
+local placeholder = vim.api.nvim_get_current_buf()
+local function np(a, b, nop)
   local bufs, current_buf_i = vim.g.bufs, M.bufi(vim.api.nvim_get_current_buf())
-  if not current_buf_i then vim.cmd("b" .. bufs[1]) return end
-  vim.cmd(current_buf_i == #bufs and "b" .. bufs[1] or "b" .. bufs[current_buf_i + 1])
+  if placeholder then
+    if not current_buf_i then vim.cmd("b" .. placeholder) return end
+    vim.cmd(current_buf_i == a and "b" .. bufs[b] or "b" .. bufs[current_buf_i + nop])
+    placeholder = vim.api.nvim_get_current_buf()
+  end
 end
 
-M.bufp = function()
-  local bufs, current_buf_i = vim.g.bufs, M.bufi(vim.api.nvim_get_current_buf())
-  if not current_buf_i then vim.cmd("b" .. bufs[1]) return end
-  vim.cmd(current_buf_i == 1 and "b" .. bufs[#bufs] or "b" .. bufs[current_buf_i - 1])
-end
+M.bufn = function() np(#vim.g.bufs, 1, 1) end
+M.bufp = function() np(1, #vim.g.bufs, -1) end
 
 M.bufo = function()
   for _, bufnr in ipairs(vim.g.bufs) do

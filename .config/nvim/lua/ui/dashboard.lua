@@ -1,3 +1,5 @@
+local M = {}
+
 local ascii = {
 --  "  ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆        ",
 --  "   ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤ ⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦      ",
@@ -41,18 +43,18 @@ for i = 1, lines do
   table.insert(ascii, "")
 end
 
-vim.defer_fn(function()
-  --vim.api.nvim_set_current_buf(vim.api.nvim_create_buf(false, true))
-  if vim.api.nvim_buf_get_name(0) == "" and not vim.bo.mod then
-    vim.api.nvim_buf_set_lines(0, 0, -1, false, ascii)
-    for i = lines, lines + #ascii do
-      vim.api.nvim_buf_add_highlight(0, 0, "Leaf", i, columns - 4, -1)
-    end
-    vim.bo.bl = false
-    vim.bo.ma = false
-    vim.bo.bt = "nofile"
-    vim.wo.nu = false
-    vim.wo.rnu = false
-    vim.wo.ve = "all"
+M.run = function(buf)
+  buf = buf or 0
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, ascii)
+  for i = lines, lines + #ascii do
+    vim.api.nvim_buf_add_highlight(buf, 0, "Leaf", i, columns - 4, -1)
   end
-end, 0)
+  vim.bo.bl = false
+  vim.bo.ma = false
+  vim.bo.bt = "nofile"
+  vim.wo.nu = false
+  vim.wo.rnu = false
+  vim.wo.ve = "all"
+end
+
+return M
