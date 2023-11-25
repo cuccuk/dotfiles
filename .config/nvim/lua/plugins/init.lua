@@ -4,7 +4,7 @@ require "lazy".setup(
     {
       "nvim-telescope/telescope.nvim",
       config = function() require "telescope".setup() end
-    },
+    }
   },
   {
     install = {

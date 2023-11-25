@@ -101,6 +101,6 @@ M.tabs = function()
   return table.concat(tabs)
 end
 
-M.run = function() return table.concat({M.buffers(), "%#Normal#%=", M.tabs()}) end
+M.run = function() return table.concat({ M.buffers(), "%#Normal#%=", M.tabs() }) end
 
 return M

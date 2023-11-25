@@ -8,7 +8,7 @@ local mappings = {
     ["<leader>hl"] = ":noh<cr>",
     ["<leader>cd"] = ":cd %:p:h<cr>:pwd<cr>",
     ["<leader>lz"] = ":Lazy<cr>",
-    ["<leader>do"] = function()
+    ["<leader>dr"] = function()
       local buf = vim.api.nvim_create_buf(false, true)
       local win = vim.api.nvim_win_set_buf(0, buf)
       require "ui.dashboard".run(buf)
@@ -29,7 +29,7 @@ local mappings = {
 
     ["<leader>te"] = ":tabe<cr>",
     ["<leader>tc"] = ":tabc<cr>",
-    ["<leader>to"] = ":tabo<cr>",
+    ["<leader>to"] = ":tabo<cr>"
   }
 }
 
