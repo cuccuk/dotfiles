@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd({"bufadd", "bufenter"}, {
   callback = function(args)
     local bufs = vim.g.bufs
     if not vim.tbl_contains(bufs, args.buf) and vim.bo[args.buf].bl then
+      placeholder = vim.api.nvim_get_current_buf()
       table.insert(bufs, args.buf)
       vim.g.bufs = bufs
     end
