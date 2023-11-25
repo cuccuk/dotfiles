@@ -7,10 +7,10 @@ end
 local function line()
   local a = vim.fn.line "."
   local b = vim.fn.line "$"
-  local c = math.modf((a / b) * 100) .. tostring "%%"
+  local c = string.format("%02s", math.modf((a / b) * 100)) .. tostring "%%"
   c = (a == 1 and "top") or c
   c = (a == b and "bot") or c
-  return " " .. c .. " "
+  return "%#Leaf# " .. c .. " "
 end
 local function run()
   return table.concat({ mode(), file_name(), "%=", line() })
