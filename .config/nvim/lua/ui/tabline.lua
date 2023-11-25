@@ -34,7 +34,7 @@ for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
 end
 vim.g.bufs = bufs
 
-vim.api.nvim_create_autocmd({ "bufadd", "bufenter" }, {
+vim.api.nvim_create_autocmd({"bufadd", "bufenter"}, {
   callback = function(args)
     local bufs = vim.g.bufs
     if not vim.tbl_contains(bufs, args.buf) and vim.bo[args.buf].bl then
@@ -100,6 +100,6 @@ M.tabs = function()
   return table.concat(tabs)
 end
 
-M.run = function() return table.concat({ M.buffers(), "%#Normal#%=", M.tabs() }) end
+M.run = function() return table.concat({M.buffers(), "%#Normal#%=", M.tabs()}) end
 
 return M

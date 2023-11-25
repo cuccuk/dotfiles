@@ -15,5 +15,5 @@ end
 local function run()
   return table.concat({ mode(), file_name(), "%=", line() })
 end
-vim.api.nvim_create_autocmd({ "BufEnter", "ModeChanged", "CursorMoved" },
+vim.api.nvim_create_autocmd({"BufEnter", "ModeChanged", "CursorMoved"},
 { callback = function() vim.opt.stl = run() end })
