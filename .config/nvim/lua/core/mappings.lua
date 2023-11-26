@@ -13,6 +13,13 @@ local mappings = {
 			local win = vim.api.nvim_win_set_buf(0, buf)
 			require("ui.dashboard").run(buf)
 		end,
+		["<leader>tw"] = function()
+			if vim.o.bg == "dark" then
+				vim.o.bg = "light"
+				return
+			end
+			vim.o.bg = "dark"
+		end,
 
 		["<leader>ff"] = ":Telescope find_files<cr>",
 		["<leader>aa"] = ":Telescope find_files hidden=true<cr>",

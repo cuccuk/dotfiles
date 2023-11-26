@@ -29,7 +29,6 @@ local theme = {
 	},
 }
 
-
 local colors = theme[vim.o.bg]
 
 local groups = {

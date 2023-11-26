@@ -27,7 +27,7 @@ M.bufp = function()
 end
 
 M.bufo = function()
-  current_buf = vim.api.nvim_get_current_buf()
+	current_buf = vim.api.nvim_get_current_buf()
 	for _, bufnr in ipairs(vim.g.bufs) do
 		if bufnr ~= current_buf then
 			vim.cmd("b" .. bufnr)
