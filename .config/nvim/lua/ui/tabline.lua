@@ -9,11 +9,10 @@ end
 local placeholder = vim.api.nvim_get_current_buf()
 local function np(a, b, nop)
   local bufs, current_buf_i = vim.g.bufs, M.bufi(vim.api.nvim_get_current_buf())
-  if placeholder then
-    if not current_buf_i then vim.cmd("b" .. placeholder) return end
-    vim.cmd(current_buf_i == a and "b" .. bufs[b] or "b" .. bufs[current_buf_i + nop])
-    placeholder = vim.api.nvim_get_current_buf()
+  if placeholder and not current_buf_i then
+    vim.cmd("b" .. placeholder) return
   end
+  vim.cmd(current_buf_i == a and "b" .. bufs[b] or "b" .. bufs[current_buf_i + nop])
 end
 
 M.bufn = function() np(#vim.g.bufs, 1, 1) end
@@ -35,13 +34,20 @@ for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
 end
 vim.g.bufs = bufs
 
-vim.api.nvim_create_autocmd({"bufadd", "bufenter"}, {
+vim.api.nvim_create_autocmd({ "bufadd", "bufenter", "bufwinenter" }, {
   callback = function(args)
     local bufs = vim.g.bufs
     if not vim.tbl_contains(bufs, args.buf) and vim.bo[args.buf].bl then
-      placeholder = vim.api.nvim_get_current_buf()
       table.insert(bufs, args.buf)
       vim.g.bufs = bufs
+    end
+  end
+})
+
+vim.api.nvim_create_autocmd("bufwinenter", {
+  callback = function(args)
+    if vim.api.nvim_buf_is_valid(args.buf) and vim.bo[args.buf].bl then
+      placeholder = args.buf
     end
   end
 })
