@@ -1,11 +1,7 @@
 require("lazy").setup({
 	"nvim-lua/plenary.nvim",
-	{
-		"nvim-telescope/telescope.nvim",
-		config = function()
-			require("telescope").setup()
-		end,
-	},
+	{ "nvim-telescope/telescope.nvim", opts = {} },
+	{ "windwp/nvim-autopairs", event = "insertenter", opts = {} },
 	{
 		"mhartington/formatter.nvim",
 		config = function()
@@ -20,9 +16,7 @@ require("lazy").setup({
 		end,
 	},
 }, {
-	install = {
-		colorscheme = { "what" },
-	},
+	install = { colorscheme = { "what" } },
 	ui = {
 		icons = {
 			cmd = "",
@@ -41,12 +35,7 @@ require("lazy").setup({
 			source = "",
 			start = "",
 			task = "",
-			list = {
-				"",
-				"",
-				"",
-				"",
-			},
+			list = { "", "", "", "" },
 		},
 	},
 })
