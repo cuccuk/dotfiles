@@ -16,10 +16,10 @@ opt.shm:append("I")
 opt.fcs = { eob = " " }
 
 vim.api.nvim_create_autocmd("termopen", {
-	callback = function(args)
-		if vim.bo.buftype == "terminal" then
-			vim.wo.nu = false
-			vim.wo.rnu = false
-		end
-	end,
+  callback = function(args)
+    if vim.bo.buftype == "terminal" then
+      vim.wo.nu = false
+      vim.wo.rnu = false
+    end
+  end,
 })
