@@ -34,6 +34,7 @@ M.bufo = function()
 			vim.cmd("conf bd")
 		end
 	end
+	vim.cmd("b" .. current_buf)
 	vim.cmd("redrawt")
 end
 
