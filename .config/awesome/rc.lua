@@ -66,7 +66,7 @@ local batteryy = wibox.widget({
 })
 
 gears.timer({
-  timeout = 1,
+  timeout = 60,
   autostart = true,
   call_now = true,
   callback = function()
