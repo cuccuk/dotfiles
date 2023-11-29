@@ -8,8 +8,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local ruled = require("ruled")
 local menubar = require("menubar")
-local hotkeys_popup = require("awful.hotkeys_popup")
-require("awful.hotkeys_popup.keys")
 
 naughty.connect_signal("request::display_error", function(message, startup)
   naughty.notification({
@@ -53,13 +51,11 @@ end)
 
 local clock = wibox.widget.textclock()
 
-local batteryy = wibox.widget({
+local battery = wibox.widget({
   min_value = 0,
   max_value = 100,
-  value = 50,
   width = 100,
   paddings = 1,
-  id = "battery",
   color = "#9ce68a",
   background_color = "#000000",
   widget = wibox.widget.progressbar,
@@ -72,7 +68,7 @@ gears.timer({
   callback = function()
     local file = io.open("/sys/class/power_supply/BAT0/capacity", "r")
     local text = file:read()
-    batteryy.value = tonumber(text)
+    battery.value = tonumber(text)
     file:close()
   end,
 })
@@ -102,7 +98,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
       {
         layout = wibox.layout.fixed.horizontal,
         wibox.widget.systray(),
-        batteryy,
+        battery,
         clock,
       },
     },
@@ -119,7 +115,6 @@ awful.keyboard.append_global_keybindings({
   awful.key({}, "XF86AudioMute", function()
     awful.spawn("amixer set Master toggle")
   end),
-  awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
   awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
   awful.key({ modkey }, "Return", function()
