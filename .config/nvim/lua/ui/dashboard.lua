@@ -43,8 +43,12 @@ M.run = function(buf)
   for i = lines, lines + #ascii do
     vim.api.nvim_buf_add_highlight(buf, 0, "Leaf", i, columns - 4, -1)
   end
+  vim.api.nvim_create_autocmd("winresized", {
+    callback = function()
+      vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "" })
+    end,
+  })
   vim.opt_local.bl = false
-  vim.opt_local.ma = false
   vim.opt_local.bt = "nofile"
   vim.opt_local.nu = false
   vim.opt_local.rnu = false
