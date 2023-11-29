@@ -17,7 +17,7 @@ naughty.connect_signal("request::display_error", function(message, startup)
   })
 end)
 
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "theme.lua")
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
@@ -318,51 +318,9 @@ ruled.client.connect_signal("request::rules", function()
   })
 
   ruled.client.append_rule({
-    id = "titlebars",
-    rule_any = { type = { "normal", "dialog" } },
-    properties = { titlebars_enabled = true },
-  })
-
-  ruled.client.append_rule({
     rule = { class = "firefox" },
     properties = { screen = 1, tag = "2" },
   })
-end)
-
-client.connect_signal("request::titlebars", function(c)
-  local buttons = {
-    awful.button({}, 1, function()
-      c:activate({ context = "titlebar", action = "mouse_move" })
-    end),
-    awful.button({}, 3, function()
-      c:activate({ context = "titlebar", action = "mouse_resize" })
-    end),
-  }
-
-  awful.titlebar(c).widget = {
-    {
-      awful.titlebar.widget.iconwidget(c),
-      buttons = buttons,
-      layout = wibox.layout.fixed.horizontal,
-    },
-    {
-      {
-        halign = "center",
-        widget = awful.titlebar.widget.titlewidget(c),
-      },
-      buttons = buttons,
-      layout = wibox.layout.flex.horizontal,
-    },
-    {
-      awful.titlebar.widget.floatingbutton(c),
-      awful.titlebar.widget.maximizedbutton(c),
-      awful.titlebar.widget.stickybutton(c),
-      awful.titlebar.widget.ontopbutton(c),
-      awful.titlebar.widget.closebutton(c),
-      layout = wibox.layout.fixed.horizontal(),
-    },
-    layout = wibox.layout.align.horizontal,
-  }
 end)
 
 ruled.notification.connect_signal("request::rules", function()
