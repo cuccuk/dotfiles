@@ -75,32 +75,15 @@ gears.timer({
 
 screen.connect_signal("request::desktop_decoration", function(s)
   awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-  s.mylayoutbox = awful.widget.layoutbox({
-    screen = s,
-  })
-
-  s.mytaglist = awful.widget.taglist({
-    screen = s,
-    filter = awful.widget.taglist.filter.all,
-  })
 
   s.mywibox = awful.wibar({
     position = "top",
     screen = s,
     widget = {
+      wibox.widget.systray(),
+      battery,
+      clock,
       layout = wibox.layout.align.horizontal,
-      {
-        layout = wibox.layout.fixed.horizontal,
-        s.mylayoutbox,
-        s.mytaglist,
-      },
-      s.mytasklist,
-      {
-        layout = wibox.layout.fixed.horizontal,
-        wibox.widget.systray(),
-        battery,
-        clock,
-      },
     },
   })
 end)
