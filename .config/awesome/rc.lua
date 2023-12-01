@@ -17,7 +17,6 @@ naughty.connect_signal("request::display_error", function(message, startup)
   })
 end)
 
-beautiful.init(gears.filesystem.get_themes_dir() .. "theme.lua")
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
@@ -51,7 +50,7 @@ end)
 
 local clock = wibox.widget.textclock()
 
-local battery = wibox.widget({
+local battery0 = wibox.widget({
   min_value = 0,
   max_value = 100,
   width = 100,
@@ -61,6 +60,10 @@ local battery = wibox.widget({
   widget = wibox.widget.progressbar,
 })
 
+local battery1 = wibox.widget({
+  widget = wibox.widget.textbox,
+})
+
 gears.timer({
   timeout = 60,
   autostart = true,
@@ -68,7 +71,19 @@ gears.timer({
   callback = function()
     local file = io.open("/sys/class/power_supply/BAT0/capacity", "r")
     local text = file:read()
-    battery.value = tonumber(text)
+    battery0.value = tonumber(text)
+    file:close()
+  end,
+})
+
+gears.timer({
+  timeout = 5,
+  autostart = true,
+  call_now = true,
+  callback = function()
+    local file = io.open("/sys/class/power_supply/BAT0/status", "r")
+    local text = file:read()
+    battery1.text = text
     file:close()
   end,
 })
@@ -81,9 +96,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
     screen = s,
     widget = {
       wibox.widget.systray(),
-      battery,
+      battery0,
+      battery1,
       clock,
-      layout = wibox.layout.align.horizontal,
+      layout = wibox.layout.fixed.horizontal,
     },
   })
 end)
