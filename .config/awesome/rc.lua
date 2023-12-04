@@ -44,7 +44,7 @@ end)
 screen.connect_signal("request::wallpaper", function(s)
   awful.wallpaper({
     screen = s,
-    bg = "#000000",
+    bg = "#2c2c2c",
   })
 end)
 
@@ -90,15 +90,15 @@ gears.timer({
 
 screen.connect_signal("request::desktop_decoration", function(s)
   awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-
-  s.mywibox = awful.wibar({
+  s.wibox = awful.wibar({
     position = "top",
     screen = s,
+    width = 500,
+    margins = 10,
     widget = {
-      wibox.widget.systray(),
       battery0,
       battery1,
-      clock,
+      spacing = 10,
       layout = wibox.layout.fixed.horizontal,
     },
   })
@@ -122,8 +122,6 @@ awful.keyboard.append_global_keybindings({
   awful.key({ modkey }, "p", function()
     menubar.show()
   end, { description = "show the menubar", group = "launcher" }),
-  awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
-  awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
   awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
   awful.key({ modkey }, "j", function()
     awful.client.focus.byidx(1)
