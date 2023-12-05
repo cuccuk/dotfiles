@@ -48,9 +48,8 @@ local battery0 = wibox.widget({
   min_value = 0,
   max_value = 100,
   width = 100,
-  paddings = 1,
   color = "#9ce68a",
-  background_color = "#2c2c2c",
+  background_color = "#000000",
   widget = wibox.widget.progressbar,
 })
 
@@ -85,6 +84,7 @@ gears.timer({
 screen.connect_signal("request::desktop_decoration", function(s)
   awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
   awful.wibar({
+    bg = "#00000000",
     position = "top",
     screen = s,
     width = 500,
