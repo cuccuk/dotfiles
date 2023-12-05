@@ -34,8 +34,6 @@ tag.connect_signal("request::default_layouts", function()
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
   })
@@ -56,7 +54,7 @@ local battery0 = wibox.widget({
   width = 100,
   paddings = 1,
   color = "#9ce68a",
-  background_color = "#000000",
+  background_color = "#2c2c2c",
   widget = wibox.widget.progressbar,
 })
 
@@ -90,7 +88,7 @@ gears.timer({
 
 screen.connect_signal("request::desktop_decoration", function(s)
   awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-  s.wibox = awful.wibar({
+  awful.wibar({
     position = "top",
     screen = s,
     width = 500,
