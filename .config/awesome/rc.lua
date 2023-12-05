@@ -57,16 +57,8 @@ local battery1 = wibox.widget({
   widget = wibox.widget.textbox,
 })
 
-gears.timer({
-  timeout = 60,
-  autostart = true,
-  call_now = true,
-  callback = function()
-    local file = io.open("/sys/class/power_supply/BAT0/capacity", "r")
-    local text = file:read()
-    battery0.value = tonumber(text)
-    file:close()
-  end,
+local battery2 = wibox.widget({
+  widget = wibox.widget.textbox,
 })
 
 gears.timer({
@@ -74,10 +66,15 @@ gears.timer({
   autostart = true,
   call_now = true,
   callback = function()
-    local file = io.open("/sys/class/power_supply/BAT0/status", "r")
-    local text = file:read()
-    battery1.text = text
-    file:close()
+    local file0 = io.open("/sys/class/power_supply/BAT0/capacity", "r")
+    local file1 = io.open("/sys/class/power_supply/BAT0/status", "r")
+    local value = file0:read()
+    local text = file1:read()
+    battery0.value = tonumber(value)
+    battery1.text = value
+    battery2.text = text
+    file0:close()
+    file1:close()
   end,
 })
 
@@ -92,6 +89,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
     widget = {
       battery0,
       battery1,
+      battery2,
       spacing = 10,
       layout = wibox.layout.fixed.horizontal,
     },

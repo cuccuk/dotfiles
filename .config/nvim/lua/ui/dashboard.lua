@@ -40,9 +40,11 @@ end
 M.run = function(buf)
   buf = buf or 0
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, ascii)
-  for i = lines, lines + #ascii do
-    vim.api.nvim_buf_add_highlight(buf, 0, "Leaf", i, columns - 4, -1)
-  end
+  pcall(function() 
+    for i = lines, lines + #ascii do
+      vim.api.nvim_buf_add_highlight(buf, 0, "Leaf", i, columns - 4, -1)
+    end
+  end)
   vim.opt_local.bl = false
   vim.opt_local.ma = false
   vim.opt_local.bt = "nofile"
