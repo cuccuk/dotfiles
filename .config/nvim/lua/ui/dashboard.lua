@@ -38,15 +38,21 @@ for i = 1, lines do
 end
 
 M.run = function(buf)
-  buf = buf or 0
+  buf = buf or vim.api.nvim_get_current_buf()
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, ascii)
-  pcall(function() 
+  pcall(function()
     for i = lines, lines + #ascii do
       vim.api.nvim_buf_add_highlight(buf, 0, "Leaf", i, columns - 4, -1)
     end
   end)
+  vim.api.nvim_create_autocmd({ "winresized", "insertenter" }, {
+    callback = function()
+      if vim.api.nvim_get_current_buf() == buf then
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "" })
+      end
+    end,
+  })
   vim.opt_local.bl = false
-  vim.opt_local.ma = false
   vim.opt_local.bt = "nofile"
   vim.opt_local.nu = false
   vim.opt_local.rnu = false
