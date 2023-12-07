@@ -8,11 +8,6 @@ local mappings = {
     ["<leader>hl"] = ":noh<cr>",
     ["<leader>cd"] = ":cd %:p:h<cr>:pwd<cr>",
     ["<leader>lz"] = ":Lazy<cr>",
-    ["<leader>dr"] = function()
-      local buf = vim.api.nvim_create_buf(false, true)
-      local win = vim.api.nvim_win_set_buf(0, buf)
-      require("ui.dashboard").run(buf)
-    end,
     ["<leader>ts"] = function()
       if vim.o.bg == "dark" then
         vim.o.bg = "light"
