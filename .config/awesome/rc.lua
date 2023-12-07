@@ -63,13 +63,10 @@ gears.timer({
   call_now = true,
   callback = function()
     local file0 = io.open("/sys/class/power_supply/BAT0/capacity", "r")
-    local file1 = io.open("/sys/class/power_supply/BAT0/status", "r")
     local value = file0:read()
-    local text = file1:read()
     battery0.value = tonumber(value)
     battery1.text = value
     file0:close()
-    file1:close()
   end,
 })
 
