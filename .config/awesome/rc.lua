@@ -57,10 +57,6 @@ local battery1 = wibox.widget({
   widget = wibox.widget.textbox,
 })
 
-local battery2 = wibox.widget({
-  widget = wibox.widget.textbox,
-})
-
 gears.timer({
   timeout = 5,
   autostart = true,
@@ -72,7 +68,6 @@ gears.timer({
     local text = file1:read()
     battery0.value = tonumber(value)
     battery1.text = value
-    battery2.text = text
     file0:close()
     file1:close()
   end,
