@@ -101,7 +101,7 @@ awful.keyboard.append_global_keybindings({
     awful.spawn("amixer set Master toggle")
   end),
   awful.key({}, "XF86MonBrightnessUp", function()
-    awful.spawn("brightnessctl s +5%")
+    awful.spawn("brightnessctl s 5%+")
   end),
   awful.key({}, "XF86MonBrightnessDown", function()
     awful.spawn("brightnessctl s 5%-")
