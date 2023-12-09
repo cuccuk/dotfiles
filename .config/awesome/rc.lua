@@ -82,7 +82,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
       battery0,
       battery1,
       battery2,
-      wibox.widget.textclock("%H:%M"),
+      {
+        format = "%H:%M",
+        refresh = 1,
+        widget = wibox.widget.textclock(),
+      },
       wibox.widget.textclock("%A %B %d %Y"),
       spacing = 10,
       layout = wibox.layout.fixed.horizontal,
