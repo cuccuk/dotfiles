@@ -100,6 +100,12 @@ awful.keyboard.append_global_keybindings({
   awful.key({}, "XF86AudioMute", function()
     awful.spawn("amixer set Master toggle")
   end),
+  awful.key({}, "XF86MonBrightnessUp", function()
+    awful.spawn("brightnessctl s +5%")
+  end),
+  awful.key({}, "XF86MonBrightnessDown", function()
+    awful.spawn("brightnessctl s 5%-")
+  end),
   awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
   awful.key({ modkey }, "Return", function()
