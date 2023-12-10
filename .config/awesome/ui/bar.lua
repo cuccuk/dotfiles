@@ -15,6 +15,26 @@ local battery1 = wibox.widget({
   widget = wibox.widget.textbox,
 })
 
+local time = wibox.widget({
+  {
+    {
+      {
+        format = "%H:%M",
+        refresh = 1,
+        widget = wibox.widget.textclock(),
+      },
+      wibox.widget.textclock("%A %B %d %Y"),
+      spacing = 10,
+      layout = wibox.layout.fixed.horizontal,
+    },
+    left = 10,
+    right = 10,
+    widget = wibox.container.margin,
+  },
+  bg = "#000000",
+  widget = wibox.container.background,
+})
+
 gears.timer({
   timeout = 5,
   autostart = true,
@@ -39,25 +59,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
       battery0,
       battery1,
       battery2,
-      {
-        {
-          {
-            {
-              format = "%H:%M",
-              refresh = 1,
-              widget = wibox.widget.textclock(),
-            },
-            wibox.widget.textclock("%A %B %d %Y"),
-            spacing = 10,
-            layout = wibox.layout.fixed.horizontal,
-          },
-          left = 10,
-          right = 10,
-          widget = wibox.container.margin,
-        },
-        bg = "#000000",
-        widget = wibox.container.background,
-      },
+      time,
       spacing = 10,
       layout = wibox.layout.fixed.horizontal,
     },
