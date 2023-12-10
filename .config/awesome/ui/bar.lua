@@ -5,7 +5,7 @@ local awful = require("awful")
 local battery0 = wibox.widget({
   min_value = 0,
   max_value = 100,
-  width = 100,
+  width = 20,
   color = "#9ce68a",
   background_color = "#000000",
   widget = wibox.widget.progressbar,
@@ -13,6 +13,21 @@ local battery0 = wibox.widget({
 
 local battery1 = wibox.widget({
   widget = wibox.widget.textbox,
+})
+
+local battery = wibox.widget({
+  {
+    {
+      battery0,
+      battery1,
+      spacing = 5,
+      layout = wibox.layout.fixed.horizontal,
+    },
+    margins = 5,
+    widget = wibox.container.margin,
+  },
+  bg = "#000000",
+  widget = wibox.container.background
 })
 
 local time = wibox.widget({
@@ -24,11 +39,11 @@ local time = wibox.widget({
         widget = wibox.widget.textclock(),
       },
       wibox.widget.textclock("%A %B %d %Y"),
-      spacing = 10,
+      spacing = 5,
       layout = wibox.layout.fixed.horizontal,
     },
-    left = 10,
-    right = 10,
+    left = 5,
+    right = 5,
     widget = wibox.container.margin,
   },
   bg = "#000000",
@@ -53,15 +68,14 @@ screen.connect_signal("request::desktop_decoration", function(s)
     bg = "#00000000",
     position = "top",
     screen = s,
-    width = 500,
+    width = 1000,
     margins = 10,
     widget = {
-      battery0,
-      battery1,
-      battery2,
+      battery,
+      nil,
       time,
       spacing = 10,
-      layout = wibox.layout.fixed.horizontal,
+      layout = wibox.layout.align.horizontal,
     },
   })
 end)
