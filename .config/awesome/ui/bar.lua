@@ -35,6 +35,19 @@ local battery = wibox.widget({
   widget = wibox.container.background,
 })
 
+gears.timer({
+  timeout = 5,
+  autostart = true,
+  call_now = true,
+  callback = function()
+    local file0 = io.open("/sys/class/power_supply/BAT0/capacity", "r")
+    local value = file0:read()
+    battery0.value = tonumber(value)
+    battery1.text = value
+    file0:close()
+  end,
+})
+
 local time = wibox.widget({
   {
     {
@@ -52,19 +65,6 @@ local time = wibox.widget({
   },
   bg = "#000000",
   widget = wibox.container.background,
-})
-
-gears.timer({
-  timeout = 5,
-  autostart = true,
-  call_now = true,
-  callback = function()
-    local file0 = io.open("/sys/class/power_supply/BAT0/capacity", "r")
-    local value = file0:read()
-    battery0.value = tonumber(value)
-    battery1.text = value
-    file0:close()
-  end,
 })
 
 screen.connect_signal("request::desktop_decoration", function(s)
