@@ -8,10 +8,6 @@ local battery0 = wibox.widget({
   forced_width = 50,
   color = "#9ce68a",
   background_color = "#2c2c2c",
-  margins = {
-    top = 10,
-    bottom = 10,
-  },
   widget = wibox.widget.progressbar,
 })
 
@@ -27,8 +23,7 @@ local battery = wibox.widget({
       spacing = 5,
       layout = wibox.layout.fixed.horizontal,
     },
-    left = 10,
-    right = 10,
+    margins = 10,
     widget = wibox.container.margin,
   },
   bg = "#000000",
