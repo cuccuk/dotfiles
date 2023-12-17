@@ -33,7 +33,7 @@ local colors = theme[vim.o.bg]
 
 local groups = {
   SpecialKey = {},
-  TermCursor = {},
+  TermCursor = { fg = colors.bg0, bg = colors.fg0 },
   NonText = {},
   Directory = { fg = colors.magenta },
   ErrorMsg = {},
