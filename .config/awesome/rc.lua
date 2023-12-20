@@ -39,7 +39,7 @@ end)
 screen.connect_signal("request::wallpaper", function(s)
   awful.wallpaper({
     screen = s,
-    bg = "#ffffff",
+    bg = "#292929",
   })
 end)
 
