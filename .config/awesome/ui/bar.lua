@@ -7,7 +7,7 @@ local battery0 = wibox.widget({
   max_value = 100,
   forced_width = 50,
   color = "#9ce68a",
-  background_color = "#ffffff",
+  background_color = "#292929",
   widget = wibox.widget.progressbar,
 })
 
