@@ -99,7 +99,6 @@ local groups = {
   Comment = { fg = colors.green },
   Leaf = { fg = colors.fg1, bg = colors.green },
   Cherry = { link = "Special" },
-  Tree = { fg = colors.green },
   TelescopeNormal = { fg = colors.fg0, bg = colors.bg1 },
   TelescopeBorder = { fg = colors.bg1, bg = colors.bg1 },
   TelescopeSelection = { link = "Identifier" },
